@@ -2,4 +2,4 @@
 # If you install openresty using brew it's probably in
 # /usr/local/opt/openresty.
 WORKING=$(dirname $0)/..
-openresty -p $WORKING/ -c conf/nginx.conf -s stop
+openresty -p $WORKING/ -c $WORKING/conf/nginx.conf -s stop
