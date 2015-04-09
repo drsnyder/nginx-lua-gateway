@@ -1,0 +1,5 @@
+#!/bin/bash
+# If you install openresty using brew it's probably in
+# /usr/local/opt/openresty.
+WORKING=$(dirname $0)/..
+openresty -p $WORKING/ -c $WORKING/conf/nginx.conf 
