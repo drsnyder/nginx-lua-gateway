@@ -1,0 +1,9 @@
+#!/bin/bash
+# How to use this:
+# 1. Add key "config/nginx-gateway/upstream-host" with the upstream host to
+#		your consul key value store.
+# 2. Run this with ./bin/templatize your-consul-host:8500
+WORKING=$(dirname $0)/..
+mkdir -p $WORKING/conf
+consul-template -consul $1 -template "$WORKING/template/nginx.conf:$WORKING/conf/nginx.conf" -once
+openresty -p $WORKING/ -c $WORKING/conf/nginx.conf -s reload
